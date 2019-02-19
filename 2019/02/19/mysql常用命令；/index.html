@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="yangpengyu">
+
+
+
+<meta name="description" content="mysql作为开发常用数据库，提供了高性能的持久化服务，很多中小企业采用该数据库进行数据存储。作为开发者，在自己的linux服务器上搭建自己的mysql数据库，并修改端口，密码配置，并进行常用的增删改查操作显得尤为重要。下面是详细内容：">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql常用命令">
+<meta property="og:url" content="http://yoursite.com/2019/02/19/mysql常用命令；/index.html">
+<meta property="og:site_name" content="Iyangpengyu&#39;s Blog">
+<meta property="og:description" content="mysql作为开发常用数据库，提供了高性能的持久化服务，很多中小企业采用该数据库进行数据存储。作为开发者，在自己的linux服务器上搭建自己的mysql数据库，并修改端口，密码配置，并进行常用的增删改查操作显得尤为重要。下面是详细内容：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-19T06:35:26.370Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql常用命令">
+<meta name="twitter:description" content="mysql作为开发常用数据库，提供了高性能的持久化服务，很多中小企业采用该数据库进行数据存储。作为开发者，在自己的linux服务器上搭建自己的mysql数据库，并修改端口，密码配置，并进行常用的增删改查操作显得尤为重要。下面是详细内容：">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Iyangpengyu&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>mysql常用命令 | Iyangpengyu&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: false
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">yangpengyu</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">welcome to my blog</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/Hexo">Hexo建站</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:iyangpengyu@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Idea/">Idea</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具使用/">工具使用</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">yangpengyu</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">yangpengyu</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">welcome to my blog</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/Hexo">Hexo建站</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:iyangpengyu@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-mysql常用命令；" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/02/19/mysql常用命令；/" class="article-date">
+      <time datetime="2019-02-19T03:39:26.000Z" itemprop="datePublished">2019-02-19</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mysql常用命令
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/开发/">开发</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>mysql作为开发常用数据库，提供了高性能的持久化服务，很多中小企业采用该数据库进行数据存储。作为开发者，在自己的linux服务器上搭建自己的mysql数据库，并修改端口，密码配置，并进行常用的增删改查操作显得尤为重要。下面是详细内容：<br><a id="more"></a></p>
+<h1 id="linux安装mysql"><a href="#linux安装mysql" class="headerlink" title="linux安装mysql"></a>linux安装mysql</h1><ul>
+<li>由于我这边是安装solr时一起安装的mysql具体安装教程我贴个链接吧  <a href="http://www.cnblogs.com/bookwed/p/5896619.html" target="_blank" rel="noopener">传送门</a><h1 id="mysql端口查看-密码修改-不同版本影响"><a href="#mysql端口查看-密码修改-不同版本影响" class="headerlink" title="mysql端口查看 密码修改 不同版本影响"></a>mysql端口查看 密码修改 不同版本影响</h1></li>
+<li><p>！！！要查看注意自己mysql的版本号</p>
+<h4 id="查看版本号："><a href="#查看版本号：" class="headerlink" title="查看版本号："></a>查看版本号：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select version();</span><br><span class="line">+-----------+</span><br><span class="line">| version() |</span><br><span class="line">+-----------+</span><br><span class="line">| 8.0.14    |</span><br><span class="line">+-----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ps:在mysql不同的版本 修改密码的sql语句不同</p>
+<h4 id="查看默认端口："><a href="#查看默认端口：" class="headerlink" title="查看默认端口："></a>查看默认端口：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global variables like &apos;port&apos;;  </span><br><span class="line">+---------------+-------+  </span><br><span class="line">| Variable_name | Value |  </span><br><span class="line">+---------------+-------+  </span><br><span class="line">| port | 3306 |  </span><br><span class="line">+---------------+-------+  </span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="修改linux默认端口"><a href="#修改linux默认端口" class="headerlink" title="修改linux默认端口"></a>修改linux默认端口</h4><ul>
+<li>cd /etc/my.cnf</li>
+<li><p>修改两处 客户端的port=3306 和mysqld的服务器端口port=3306</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">port=3306</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">[mysqld]</span><br><span class="line">port=3306</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启mysql服务器即可</p>
+<h4 id="查询用户密码"><a href="#查询用户密码" class="headerlink" title="查询用户密码:"></a>查询用户密码:</h4></li>
+<li><p>mysql8.0查询用户密码命令：mysql&gt; select host,user,authentication_string from mysql.user;</p>
+</li>
+<li><p>host: 允许用户登录的ip‘位置’%表示可以远程；</p>
+</li>
+<li>user:当前数据库的用户名；</li>
+<li>authentication_string: 用户密码（后面有提到此字段）；</li>
+</ul>
+<h4 id="设置（或修改）root用户密码"><a href="#设置（或修改）root用户密码" class="headerlink" title="设置（或修改）root用户密码"></a>设置（或修改）root用户密码</h4><p>默认root密码为空的话 ，下面使用远程窗口就无法连接，包括mysql -u root 命令都只能在配置不校验密码参数后才可链接，所以我们需要修改root的密码。</p>
+<p>修改密码由于版本的问题很多教程不适用，后来才知道在mysql 5.7.9以后废弃了password字段和password()函数；authentication_string:字段表示用户密码。</p>
+<h4 id="下面直接演示正确修改root密码的步骤："><a href="#下面直接演示正确修改root密码的步骤：" class="headerlink" title="下面直接演示正确修改root密码的步骤："></a>下面直接演示正确修改root密码的步骤：</h4><p>一、如果当前root用户authentication_string字段下有内容，先将其设置为空，否则直接进行二步骤。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">update user set authentication_string=&apos;&apos; where user=&apos;root&apos;</span><br></pre></td></tr></table></figure></p>
+<p>二、使用ALTER修改root用户密码,方法为 ALTER user ‘root‘@’localhost’ IDENTIFIED BY ‘新密码’。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER user &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;Cliu123#&apos;</span><br></pre></td></tr></table></figure></p>
+<p>此处有两点需要注意：<br>1、不需要flush privileges来刷新权限。<br>2、密码要包含大写字母，小写字母，数字，特殊符号。<br>　　修改成功； 重新使用用户名密码登录即可；</p>
+<p>注意： 一定不要采取如下形式该密码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line"></span><br><span class="line">update user set authentication_string=&quot;newpassword&quot; where user=&quot;root&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>这样会给user表中root用户的authentication_string字段下设置了newpassword值；<br>当再使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFITED BY &apos;newpassword&apos;</span><br></pre></td></tr></table></figure></p>
+<p>时会报错的；<br>因为authentication_string字段下只能是mysql加密后的41位字符串密码；其他的会报格式错误；<br>*THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE<br>至此，安装mysql和修改root密码告一段落。</p>
+<h4 id="使用navicat远程连接mysql"><a href="#使用navicat远程连接mysql" class="headerlink" title="使用navicat远程连接mysql"></a>使用navicat远程连接mysql</h4><h5 id="修改user表，使得mysql支持远程连接"><a href="#修改user表，使得mysql支持远程连接" class="headerlink" title="修改user表，使得mysql支持远程连接"></a>修改user表，使得mysql支持远程连接</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; update user set Host=&apos;%&apos; where user = &apos;root&apos;;</span><br></pre></td></tr></table></figure>
+<h5 id="账号密码都正确，连接报错1251。"><a href="#账号密码都正确，连接报错1251。" class="headerlink" title="账号密码都正确，连接报错1251。"></a>账号密码都正确，连接报错1251。</h5><p>首先我们看看这个改动：<br>在MySQL 8.04前，执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET PASSWORD=PASSWORD(&apos;[新密码]&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>但是MySQL8.0.4开始，这样默认是不行的。因为之前，MySQL的密码认证插件是“mysql_native_password”，而现在使用的是“caching_sha2_password”。</p>
+<p>所以,我们这里需要再次修改一次root密码。</p>
+<p>先登录进入mysql环境：执行下面三个命令。（记得带上分号）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">use mysql；</span><br><span class="line"></span><br><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED WITH mysql_native_password BY &apos;新密码&apos;;</span><br><span class="line"></span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
+<p>再尝试连接发现成功</p>
+<h1 id="mysql常用增删改查命令"><a href="#mysql常用增删改查命令" class="headerlink" title="mysql常用增删改查命令"></a>mysql常用增删改查命令</h1><h2 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h2><p>1.创建数据表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create table courses(name char(20) not null, age tinyint unsigned, gender char(1) not null);</span><br></pre></td></tr></table></figure></p>
+<p>2.删除表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; DROP TABLE table_name ;</span><br></pre></td></tr></table></figure></p>
+<p>3.修改表<br>&ensp;3.1增加字段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl ADD i INT;#增加i字段;</span><br></pre></td></tr></table></figure></p>
+<p>&ensp;3.2修改字段属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;ALTER TABLE testalter_tbl MODIFY c CHAR(10); #改变testalter_tbl的c为char(10);</span><br></pre></td></tr></table></figure></p>
+<h2 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h2><p>1.插入数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO 表名（字段1，字段2，…） VALUES（字段1的值，字段2的值，…）</span><br></pre></td></tr></table></figure></p>
+<p>2.修改数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;UPDATE table_name SET field1=new-value1, field2=new-value2;</span><br></pre></td></tr></table></figure></p>
+<p>3.删除数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;delete from students where Course=&apos;wg&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>4.查询数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select count(*) from tab_name order by id [DESC|ASC]; #DESC倒序/ASC正序</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/02/19/mysql常用命令；/">mysql常用命令</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">yangpengyu</a></p>
+        <p><span>发布时间:</span>2019-02-19, 11:39:26</p>
+        <p><span>最后更新:</span>2019-02-19, 14:35:26</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/02/19/mysql常用命令；/" title="mysql常用命令">http://yoursite.com/2019/02/19/mysql常用命令；/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/02/19/mysql常用命令；/　　作者: yangpengyu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/02/13/如何在notepad++中支持markdown语法/">
+                    如何在notepad++中支持markdown语法
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux安装mysql"><span class="toc-number">1.</span> <span class="toc-text">linux安装mysql</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql端口查看-密码修改-不同版本影响"><span class="toc-number">2.</span> <span class="toc-text">mysql端口查看 密码修改 不同版本影响</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看版本号："><span class="toc-number">2.0.0.1.</span> <span class="toc-text">查看版本号：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看默认端口："><span class="toc-number">2.0.0.2.</span> <span class="toc-text">查看默认端口：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改linux默认端口"><span class="toc-number">2.0.0.3.</span> <span class="toc-text">修改linux默认端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查询用户密码"><span class="toc-number">2.0.0.4.</span> <span class="toc-text">查询用户密码:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置（或修改）root用户密码"><span class="toc-number">2.0.0.5.</span> <span class="toc-text">设置（或修改）root用户密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#下面直接演示正确修改root密码的步骤："><span class="toc-number">2.0.0.6.</span> <span class="toc-text">下面直接演示正确修改root密码的步骤：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用navicat远程连接mysql"><span class="toc-number">2.0.0.7.</span> <span class="toc-text">使用navicat远程连接mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#修改user表，使得mysql支持远程连接"><span class="toc-number">2.0.0.7.1.</span> <span class="toc-text">修改user表，使得mysql支持远程连接</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#账号密码都正确，连接报错1251。"><span class="toc-number">2.0.0.7.2.</span> <span class="toc-text">账号密码都正确，连接报错1251。</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql常用增删改查命令"><span class="toc-number">3.</span> <span class="toc-text">mysql常用增删改查命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据表操作"><span class="toc-number">3.1.</span> <span class="toc-text">数据表操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据操作"><span class="toc-number">3.2.</span> <span class="toc-text">数据操作</span></a></li></ol></li>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"mysql常用命令　| Iyangpengyu's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section id="comments">
+    <style> aside.comment-bar { margin: auto 30px; }</style>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function(){
+            this.page.url = 'http://yoursite.com/2019/02/19/mysql常用命令；/';
+            this.page.identifier = '2019/02/19/mysql常用命令；/';
+        };
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = '//.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+</section>
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/02/13/如何在notepad++中支持markdown语法/" title="下一篇: 如何在notepad++中支持markdown语法">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/02/19/mysql常用命令；/">mysql常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/13/如何在notepad++中支持markdown语法/">如何在notepad++中支持markdown语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/13/idea开发工具简介及问题汇总/">idea开发工具简介及问题汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/31/hello-world/">利用github+Hexo所搭建的个人博客</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 yangpengyu
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
