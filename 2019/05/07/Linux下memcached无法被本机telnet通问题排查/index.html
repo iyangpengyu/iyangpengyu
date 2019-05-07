@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Idea,">
+  <meta name="keywords" content="memcached,">
 
 
 
@@ -86,18 +86,20 @@
 
 
 
-<meta name="description" content="idea是作者接触开发工具中比较好用的一款，强大的插件系统赋予了它多变灵活的功能，在使用它进行开发的过程中遇到的问题也进行了记录，目前在作者csdn博客上先建立一个小的传送门也欢迎大家关注我csdn博客 idea传送门More info: 传送">
-<meta name="keywords" content="Idea">
+<meta name="description" content="linux搭建memcached 首先我们的服务器上安装好memcached,下面是安装步骤">
+<meta name="keywords" content="memcached">
 <meta property="og:type" content="article">
-<meta property="og:title" content="idea开发工具简介及问题汇总">
-<meta property="og:url" content="http://yoursite.com/2019/02/13/idea开发工具简介及问题汇总/index.html">
+<meta property="og:title" content="Linux下memcached无法被本机telnet通问题排查">
+<meta property="og:url" content="http://yoursite.com/2019/05/07/Linux下memcached无法被本机telnet通问题排查/index.html">
 <meta property="og:site_name" content="Iyangpengyu&#39;s Blog">
-<meta property="og:description" content="idea是作者接触开发工具中比较好用的一款，强大的插件系统赋予了它多变灵活的功能，在使用它进行开发的过程中遇到的问题也进行了记录，目前在作者csdn博客上先建立一个小的传送门也欢迎大家关注我csdn博客 idea传送门More info: 传送">
+<meta property="og:description" content="linux搭建memcached 首先我们的服务器上安装好memcached,下面是安装步骤">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-19T02:35:55.473Z">
+<meta property="og:image" content="http://yoursite.com/2019/05/07/Linux下memcached无法被本机telnet通问题排查/img1.JPG">
+<meta property="og:updated_time" content="2019-05-07T05:53:02.533Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="idea开发工具简介及问题汇总">
-<meta name="twitter:description" content="idea是作者接触开发工具中比较好用的一款，强大的插件系统赋予了它多变灵活的功能，在使用它进行开发的过程中遇到的问题也进行了记录，目前在作者csdn博客上先建立一个小的传送门也欢迎大家关注我csdn博客 idea传送门More info: 传送">
+<meta name="twitter:title" content="Linux下memcached无法被本机telnet通问题排查">
+<meta name="twitter:description" content="linux搭建memcached 首先我们的服务器上安装好memcached,下面是安装步骤">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/07/Linux下memcached无法被本机telnet通问题排查/img1.JPG">
 
 
 
@@ -127,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/13/idea开发工具简介及问题汇总/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/07/Linux下memcached无法被本机telnet通问题排查/">
 
 
 
 
 
-  <title>idea开发工具简介及问题汇总 | Iyangpengyu's Blog</title>
+  <title>Linux下memcached无法被本机telnet通问题排查 | Iyangpengyu's Blog</title>
   
 
 
@@ -270,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/13/idea开发工具简介及问题汇总/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/Linux下memcached无法被本机telnet通问题排查/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangpengyu">
@@ -287,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">idea开发工具简介及问题汇总</h1>
+          <h1 class="post-title" itemprop="name headline">Linux下memcached无法被本机telnet通问题排查</h1>
         
 
         <div class="post-meta">
@@ -299,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-13T10:55:04+08:00">
-                2019-02-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-07T11:52:33+08:00">
+                2019-05-07
               </time>
             
 
@@ -322,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/开发/" itemprop="url" rel="index">
-                    <span itemprop="name">开发</span>
+                  <a href="/categories/建站/" itemprop="url" rel="index">
+                    <span itemprop="name">建站</span>
                   </a>
                 </span>
 
@@ -359,9 +361,15 @@
       
 
       
-        <p>idea是作者接触开发工具中比较好用的一款，强大的插件系统赋予了它多变灵活的功能，在使用它进行开发的过程中遇到的问题也进行了记录，目前在作者csdn博客上先建立一个小的传送门<br>也欢迎大家关注我csdn博客</p>
-<h3 id="idea传送门"><a href="#idea传送门" class="headerlink" title="idea传送门"></a>idea传送门</h3><p>More info: <a href="https://blog.csdn.net/xianganyu8801/article/details/87007198" target="_blank" rel="noopener">传送</a></p>
-
+        <h4 id="linux搭建memcached"><a href="#linux搭建memcached" class="headerlink" title="linux搭建memcached"></a>linux搭建memcached</h4><ul>
+<li>首先我们的服务器上安装好memcached,下面是安装步骤<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">一. 安装步骤</span><br><span class="line"></span><br><span class="line">1.1 安装libevent，当前最新版本为2.1.8，官网：http://libevent.org/</span><br><span class="line"></span><br><span class="line">wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz</span><br><span class="line">1.2 解压</span><br><span class="line"></span><br><span class="line">tar -xvf libevent-2.1.8-stable.tar.gz</span><br><span class="line">1.3 进入目录</span><br><span class="line">cd libevent-2.1.8-stable</span><br><span class="line">1.4 安装</span><br><span class="line"></span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line">1.5 /usr/local/lib目录下就会有如下文件</span><br><span class="line"></span><br><span class="line">二. Memcached安装</span><br><span class="line"></span><br><span class="line">2.1 当前最新版本：memcached-1.5.8.tar.gz，官网：http://memcached.org/</span><br><span class="line"></span><br><span class="line">wget http://www.memcached.org/files/memcached-1.5.8.tar.gz</span><br><span class="line">2.2 解压</span><br><span class="line"></span><br><span class="line">tar -xvf memcached-1.5.8.tar.gz</span><br><span class="line">2.3 进入目录</span><br><span class="line"></span><br><span class="line">cd memcached-1.5.8</span><br><span class="line">2.4 配置、编译和安装</span><br><span class="line"></span><br><span class="line">./configure --prefix=/usr/local/memcached</span><br><span class="line">make &amp; make test</span><br><span class="line">sudo make install</span><br><span class="line">2.5 安装目录</span><br><span class="line"></span><br><span class="line">/usr/local/memcached/bin/memcached</span><br><span class="line">2.6 设置环境变量</span><br><span class="line"></span><br><span class="line">vim ~/.bashrc</span><br><span class="line">2.7 光标移植篇末，按下字母&quot;i&quot;进入编辑模式，输入如下命令.</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">注：=前后不能有空格，否则设置无效。</span><br><span class="line"></span><br><span class="line">2.8 按Esc后，输入&quot;:wq&quot;保存退出，然后更新设置的环境变量</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br><span class="line">2.9 运行</span><br><span class="line"></span><br><span class="line">memcached -p 11211 -m 64M -u root -d</span><br><span class="line"></span><br><span class="line">三. 安装及运行过程问题</span><br><span class="line"></span><br><span class="line">3.1 can&apos;t run as root without the -u switch</span><br><span class="line"></span><br><span class="line">解决方法：需要指定用户，-u root</span><br><span class="line"></span><br><span class="line">/usr/local/memcached/bin/memcached -p 11211 -m 64M -u root -d</span><br><span class="line">3.2 /usr/local/memcached/bin/memcached: error while loading shared libraries: libevent-2.1.so.6: cannot open shared object file: No such file or directory</span><br><span class="line"></span><br><span class="line">解决方法：</span><br><span class="line"></span><br><span class="line">Unbuntu下执行：ln -s /usr/local/lib/libevent-2.1.so.6 /usr/lib/libevent-2.1.so.6</span><br><span class="line">CentOS下执行：ln -s /usr/local/lib/libevent-2.1.so.6 /usr/lib64/libevent-2.1.so.6</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="memcached如何查看memcached服务是否启动"><a href="#memcached如何查看memcached服务是否启动" class="headerlink" title="memcached如何查看memcached服务是否启动"></a>memcached如何查看memcached服务是否启动</h4>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">telnet 127.0.0.1 11211 </span><br><span class="line">出现：Escape character is &apos;^]&apos;</span><br><span class="line">表示memcached服务已经启动</span><br><span class="line">按ctrl + ]键 并 输入quit退出memcached程序</span><br></pre></td></tr></table></figure>
+<h4 id="memcached如何开启远程访问并修改端口号"><a href="#memcached如何开启远程访问并修改端口号" class="headerlink" title="memcached如何开启远程访问并修改端口号"></a>memcached如何开启远程访问并修改端口号</h4>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">博主在/etc/init.d/memcached下有对于memcached的配置文件</span><br><span class="line">修改对应端口号为自己想要的,注意设置之前先查看是否有端口占用</span><br><span class="line">options项中改为 &quot;-l 0.0.0.0&quot;便可以接收所有ipv4访问</span><br></pre></td></tr></table></figure>
+<p>   <img src="/2019/05/07/Linux下memcached无法被本机telnet通问题排查/img1.JPG" alt="如图所示"></p>
+<h4 id="memcached启动后本地进行telnet访问失败"><a href="#memcached启动后本地进行telnet访问失败" class="headerlink" title="memcached启动后本地进行telnet访问失败"></a>memcached启动后本地进行telnet访问失败</h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">原因一：机器没有安装telnet服务。</span><br><span class="line">解决方法： 安装telnet 命令如下：</span><br><span class="line">yum -y install telnet</span><br><span class="line">原因二：memcached将optinons项配置置空后 而服务器设置有默认配置ipv6端口的习惯 导致memcached虽然启动但是是在ipv6网段上</span><br><span class="line">解决方法：options项中改为 &quot;-l 0.0.0.0&quot;便可以接收所有ipv4访问</span><br><span class="line">ps:查看linux中服务对应信息 netstat -utnlap | grep 你想要的服务</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -378,7 +386,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Idea/" rel="tag"># Idea</a>
+            <a href="/tags/memcached/" rel="tag"># memcached</a>
           
         </div>
       
@@ -391,8 +399,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/31/hello-world/" rel="next" title="利用github+Hexo所搭建的个人博客">
-                <i class="fa fa-chevron-left"></i> 利用github+Hexo所搭建的个人博客
+              <a href="/2019/02/28/redis集群搭建小结/" rel="next" title="阿里云ESC实例搭建redis集群那些事">
+                <i class="fa fa-chevron-left"></i> 阿里云ESC实例搭建redis集群那些事
               </a>
             
           </div>
@@ -400,10 +408,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/13/如何在notepad++中支持markdown语法/" rel="prev" title="如何在notepad++中支持markdown语法">
-                如何在notepad++中支持markdown语法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -535,7 +539,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#idea传送门"><span class="nav-number">1.</span> <span class="nav-text">idea传送门</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#linux搭建memcached"><span class="nav-number">1.</span> <span class="nav-text">linux搭建memcached</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#memcached如何查看memcached服务是否启动"><span class="nav-number">2.</span> <span class="nav-text">memcached如何查看memcached服务是否启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#memcached如何开启远程访问并修改端口号"><span class="nav-number">3.</span> <span class="nav-text">memcached如何开启远程访问并修改端口号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#memcached启动后本地进行telnet访问失败"><span class="nav-number">4.</span> <span class="nav-text">memcached启动后本地进行telnet访问失败</span></a></li></ol></div>
             
 
           </div>
