@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,">
+  <meta name="keywords" content="问题,">
 
 
 
@@ -86,18 +86,20 @@
 
 
 
-<meta name="description" content="目前利用github提供的gitPage服务并结合hexo框架进行个人博客搭建已经成为主流博客搭建技术，如果你也想采用这种技术搭建属于自己的blog空间，那么这篇文章会对你进行部署和搭建产生一定的帮助。">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="常见问题ZS ReenTrantLock可重入锁（和synchronized的区别） 可重入性：从名字上理解，ReenTrantLock的字面意思就是再进入的锁，其实synchronized关键字所使用的锁也是可重入的，两者关于这个的区别不大。两者都是同一个线程没进入一次，锁的计数器都自增1，所以要等到锁的计数器下降为0时才能释放。 锁的实现：Synchronized是依赖于JVM实现的，而Ree">
+<meta name="keywords" content="问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用github+Hexo所搭建的个人博客">
-<meta property="og:url" content="http://yoursite.com/2019/01/31/hello-world/index.html">
+<meta property="og:title" content="常见问题">
+<meta property="og:url" content="http://yoursite.com/2019/09/06/常见问题/index.html">
 <meta property="og:site_name" content="Iyangpengyu&#39;s Blog">
-<meta property="og:description" content="目前利用github提供的gitPage服务并结合hexo框架进行个人博客搭建已经成为主流博客搭建技术，如果你也想采用这种技术搭建属于自己的blog空间，那么这篇文章会对你进行部署和搭建产生一定的帮助。">
+<meta property="og:description" content="常见问题ZS ReenTrantLock可重入锁（和synchronized的区别） 可重入性：从名字上理解，ReenTrantLock的字面意思就是再进入的锁，其实synchronized关键字所使用的锁也是可重入的，两者关于这个的区别不大。两者都是同一个线程没进入一次，锁的计数器都自增1，所以要等到锁的计数器下降为0时才能释放。 锁的实现：Synchronized是依赖于JVM实现的，而Ree">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-19T03:02:14.987Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/06/常见问题/1.jpg">
+<meta property="og:updated_time" content="2019-09-06T03:22:00.152Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用github+Hexo所搭建的个人博客">
-<meta name="twitter:description" content="目前利用github提供的gitPage服务并结合hexo框架进行个人博客搭建已经成为主流博客搭建技术，如果你也想采用这种技术搭建属于自己的blog空间，那么这篇文章会对你进行部署和搭建产生一定的帮助。">
+<meta name="twitter:title" content="常见问题">
+<meta name="twitter:description" content="常见问题ZS ReenTrantLock可重入锁（和synchronized的区别） 可重入性：从名字上理解，ReenTrantLock的字面意思就是再进入的锁，其实synchronized关键字所使用的锁也是可重入的，两者关于这个的区别不大。两者都是同一个线程没进入一次，锁的计数器都自增1，所以要等到锁的计数器下降为0时才能释放。 锁的实现：Synchronized是依赖于JVM实现的，而Ree">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/06/常见问题/1.jpg">
 
 
 
@@ -127,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/31/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/06/常见问题/">
 
 
 
 
 
-  <title>利用github+Hexo所搭建的个人博客 | Iyangpengyu's Blog</title>
+  <title>常见问题 | Iyangpengyu's Blog</title>
   
 
 
@@ -270,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/31/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/06/常见问题/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangpengyu">
@@ -287,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">利用github+Hexo所搭建的个人博客</h1>
+          <h1 class="post-title" itemprop="name headline">常见问题</h1>
         
 
         <div class="post-meta">
@@ -299,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-31T15:52:49+08:00">
-                2019-01-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-06T11:17:58+08:00">
+                2019-09-06
               </time>
             
 
@@ -322,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/建站/" itemprop="url" rel="index">
-                    <span itemprop="name">建站</span>
+                  <a href="/categories/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
                   </a>
                 </span>
 
@@ -359,22 +361,43 @@
       
 
       
-        <p>目前利用github提供的gitPage服务并结合hexo框架进行个人博客搭建已经成为主流博客搭建技术，如果你也想采用这种技术搭建属于自己的blog空间，那么这篇文章会对你进行部署和搭建产生一定的帮助。<br><a id="more"></a></p>
-<h2 id="如何进行搭建？"><a href="#如何进行搭建？" class="headerlink" title="如何进行搭建？"></a>如何进行搭建？</h2><h3 id="helloWorld页面搭建过程"><a href="#helloWorld页面搭建过程" class="headerlink" title="helloWorld页面搭建过程"></a>helloWorld页面搭建过程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/weixin_39879178/article/details/80319392</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://blog.csdn.net/weixin_39879178/article/details/80319392" target="_blank" rel="noopener">搭建过程</a></p>
-<h3 id="hexo进阶操作"><a href="#hexo进阶操作" class="headerlink" title="hexo进阶操作"></a>hexo进阶操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/gdutxiaoxu/article/details/53576018</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://blog.csdn.net/gdutxiaoxu/article/details/53576018" target="_blank" rel="noopener">进阶操作</a></p>
-<h3 id="部署中遇到问题解决方案"><a href="#部署中遇到问题解决方案" class="headerlink" title="部署中遇到问题解决方案"></a>部署中遇到问题解决方案</h3><h5 id="！该链接指出的解决策略会导致部分js无法加载，根本解决为-修改github仓库名"><a href="#！该链接指出的解决策略会导致部分js无法加载，根本解决为-修改github仓库名" class="headerlink" title="！该链接指出的解决策略会导致部分js无法加载，根本解决为 修改github仓库名"></a>！该链接指出的解决策略会导致部分js无法加载，根本解决为 修改github仓库名</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/Nathan1987_/article/details/50322493</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://blog.csdn.net/Nathan1987_/article/details/50322493" target="_blank" rel="noopener">解决方案</a></p>
-<h3 id="config文件详解"><a href="#config文件详解" class="headerlink" title="_config文件详解"></a>_config文件详解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/a1335289286/article/details/79334793</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://blog.csdn.net/a1335289286/article/details/79334793" target="_blank" rel="noopener">config文件详解</a></p>
-<h3 id="如何为你的hexo添加图片"><a href="#如何为你的hexo添加图片" class="headerlink" title="如何为你的hexo添加图片"></a>如何为你的hexo添加图片</h3><h5 id="首先设置站点配置-config-yml"><a href="#首先设置站点配置-config-yml" class="headerlink" title="首先设置站点配置_config.yml"></a>首先设置站点配置_config.yml</h5><ul>
-<li>post_asset_folder: true<h5 id="然后安装插件"><a href="#然后安装插件" class="headerlink" title="然后安装插件"></a>然后安装插件</h5></li>
-<li>npm install <a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a> – save<h5 id="下次再运行hexo”xxxx”来生成md博文时，路径-source-posts下会有同名文件夹供你存放图片"><a href="#下次再运行hexo”xxxx”来生成md博文时，路径-source-posts下会有同名文件夹供你存放图片" class="headerlink" title="下次再运行hexo”xxxx”来生成md博文时，路径/source/_posts下会有同名文件夹供你存放图片"></a>下次再运行hexo”xxxx”来生成md博文时，路径/source/_posts下会有同名文件夹供你存放图片</h5></li>
-<li>文件夹内除了xxxx.md文件还有一个同名的文件夹，在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片<h5 id="文章中引用图片方式为：（图片地址直接填图片名就好）"><a href="#文章中引用图片方式为：（图片地址直接填图片名就好）" class="headerlink" title="文章中引用图片方式为：（图片地址直接填图片名就好）"></a>文章中引用图片方式为：（图片地址直接填图片名就好）</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![“图片描述”](“图片地址”)</span><br></pre></td></tr></table></figure>
+        <h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="ZS"><a href="#ZS" class="headerlink" title="ZS"></a>ZS</h3><ul>
+<li><h3 id="ReenTrantLock可重入锁（和synchronized的区别）"><a href="#ReenTrantLock可重入锁（和synchronized的区别）" class="headerlink" title="ReenTrantLock可重入锁（和synchronized的区别）"></a>ReenTrantLock可重入锁（和synchronized的区别）</h3><ul>
+<li><strong>可重入性：</strong>从名字上理解，ReenTrantLock的字面意思就是再进入的锁，其实synchronized关键字所使用的锁也是可重入的，两者关于这个的区别不大。两者都是同一个线程没进入一次，锁的计数器都自增1，所以要等到锁的计数器下降为0时才能释放。</li>
+<li><strong>锁的实现：</strong>Synchronized是依赖于JVM实现的，而ReenTrantLock是JDK实现的，有什么区别，说白了就类似于操作系统来控制实现和用户自己敲代码实现的区别。前者的实现是比较难见到的，后者有直接的源码可供阅读。</li>
+<li><strong>性能的区别：</strong>在Synchronized优化以前，synchronized的性能是比ReenTrantLock差很多的，但是自从Synchronized引入了偏向锁，轻量级锁（自旋锁）后，两者的性能就差不多了，在两种方法都可用的情况下，官方甚至建议使用synchronized，其实synchronized的优化我感觉就借鉴了ReenTrantLock中的CAS技术。都是试图在用户态就把加锁问题解决，避免进入内核态的线程阻塞。</li>
+<li><strong>功能区别：</strong>便利性：Synchronized的使用比较方便简洁，并且由编译器去保证锁的加锁和释放，而ReenTrantLock需要手工声明来加锁和释放锁，为了避免忘记手工释放锁造成死锁，所以最好在finally中声明释放锁。</li>
+<li><strong>锁的细粒度和灵活度：</strong>ReenTrantLock优于Synchronized。</li>
+<li><strong>ReenTrantLock</strong>独有的能力：（什么情况下需要使用reentrantlock）<ol>
+<li>ReenTrantLock可以指定是公平锁还是非公平锁。而synchronized只能是非公平锁。所谓的公平锁就是先等待的线程先获得锁。</li>
+<li>ReenTrantLock提供了一个Condition（条件）类，用来实现分组唤醒需要唤醒的线程们，而不是像synchronized要么随机唤醒一个线程要么唤醒全部线程。</li>
+<li>ReenTrantLock提供了一种能够中断等待锁的线程的机制，通过lock.lockInterruptibly()来实现这个机制。</li>
+</ol>
 </li>
+<li>简单来说，ReenTrantLock的实现是一种自旋锁，通过循环调用CAS操作来实现加锁。它的性能比较好也是因为避免了使线程进入内核态的阻塞状态。<strong>想尽办法避免线程进入内核的阻塞状态是我们去分析和理解锁设计的关键钥匙。</strong></li>
 </ul>
-<p>More info: <a href="https://blog.csdn.net/qq_39520417/article/details/80560435" target="_blank" rel="noopener">添加图片</a></p>
+</li>
+<li><p><strong>IF ELSE 优化</strong></p>
+<ul>
+<li>采用策略模式。有一个共同的接口，每一份分支走一个实现类。清晰明了</li>
+<li>代码中有很多”if””else””switch”和其它凌乱的逻辑，且总是易变的应当使用规则引擎，drools</li>
+</ul>
+</li>
+<li><p><strong>类加载解析的时候</strong>（双亲委派模式）</p>
+<p>lass文件由类装载器装载后，在JVM中将形成一份描述Class结构的元信息对象，通过该元信息对象可以获知Class的结构信息：如构造函数，属性和方法等，Java允许用户借由这个Class相关的元信息对象间接调用Class对象的功能。</p>
+<p>虚拟机把描述类的数据从class文件加载到内存，并对数据进行校验，转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这就是虚拟机的类加载机制。</p>
+<p>class 加载 验证 准备 初始化</p>
+</li>
+<li><p>微服务架构图</p>
+<p><img src="/2019/09/06/常见问题/1.jpg" alt=""></p>
+</li>
+<li><p>创建行设计模式有哪些 </p>
+<p>工厂方法模式、抽象工厂模式、单例模式、建造者模式、原型模式</p>
+</li>
+<li><p>spring\索引知识点</p>
+</li>
+<li></li>
+</ul>
 
       
     </div>
@@ -392,7 +415,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/问题/" rel="tag"># 问题</a>
           
         </div>
       
@@ -405,14 +428,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/09/05/oracle存储过程及常用语法糖/" rel="next" title="oracle存储过程及常用语法糖">
+                <i class="fa fa-chevron-left"></i> oracle存储过程及常用语法糖
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/13/idea开发工具简介及问题汇总/" rel="prev" title="idea开发工具简介及问题汇总">
-                idea开发工具简介及问题汇总 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/06/安全可信内容/" rel="prev" title="安全可信内容">
+                安全可信内容 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -545,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何进行搭建？"><span class="nav-number">1.</span> <span class="nav-text">如何进行搭建？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#helloWorld页面搭建过程"><span class="nav-number">1.1.</span> <span class="nav-text">helloWorld页面搭建过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo进阶操作"><span class="nav-number">1.2.</span> <span class="nav-text">hexo进阶操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署中遇到问题解决方案"><span class="nav-number">1.3.</span> <span class="nav-text">部署中遇到问题解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#！该链接指出的解决策略会导致部分js无法加载，根本解决为-修改github仓库名"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">！该链接指出的解决策略会导致部分js无法加载，根本解决为 修改github仓库名</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config文件详解"><span class="nav-number">1.4.</span> <span class="nav-text">_config文件详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何为你的hexo添加图片"><span class="nav-number">1.5.</span> <span class="nav-text">如何为你的hexo添加图片</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#首先设置站点配置-config-yml"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">首先设置站点配置_config.yml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#然后安装插件"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">然后安装插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下次再运行hexo”xxxx”来生成md博文时，路径-source-posts下会有同名文件夹供你存放图片"><span class="nav-number">1.5.0.3.</span> <span class="nav-text">下次再运行hexo”xxxx”来生成md博文时，路径/source/_posts下会有同名文件夹供你存放图片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文章中引用图片方式为：（图片地址直接填图片名就好）"><span class="nav-number">1.5.0.4.</span> <span class="nav-text">文章中引用图片方式为：（图片地址直接填图片名就好）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题"><span class="nav-number">1.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ZS"><span class="nav-number">1.1.</span> <span class="nav-text">ZS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ReenTrantLock可重入锁（和synchronized的区别）"><span class="nav-number">1.2.</span> <span class="nav-text">ReenTrantLock可重入锁（和synchronized的区别）</span></a></li></ol></li></ol></div>
             
 
           </div>
